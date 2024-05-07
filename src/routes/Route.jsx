@@ -10,11 +10,11 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 
 const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home />,
-    errorElement: <ErrorPage />,
-  },
+  // {
+  //   path: "/",
+  //   element: <Home />,
+  //   errorElement: <ErrorPage />,
+  // },
   {
     path: "/",
     element: <App />,
@@ -34,6 +34,11 @@ const router = createBrowserRouter([
         element: <Profile />,
       },
     ],
+  },
+  {
+    path: "/home",
+    element: <Home />,
+    errorElement: <ErrorPage />,
   },
 ]);
 
