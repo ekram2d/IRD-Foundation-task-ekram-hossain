@@ -1,7 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import counterReducer from "../features/counter/counterSlice";
+import textReducer from "../features/Text/TextSlice";
+import darksliceReducer from "../features/Dark/DarkSlice";
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    textchanger: textReducer,
+    modechange: darksliceReducer,
   },
 });

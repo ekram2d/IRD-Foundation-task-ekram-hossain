@@ -3,7 +3,8 @@ import { NavLink } from "react-router-dom";
 
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { setText } from "../../features/counter/counterSlice";
+import { setText } from "../../features/Text/TextSlice";
+
 const Navlinks = ({ style }) => {
   const [isOpen, setIsOpen] = useState(true);
 

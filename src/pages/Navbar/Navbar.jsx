@@ -1,8 +1,11 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setMode } from "../../features/Dark/DarkSlice";
 
 export const Navbar = () => {
-  const count = useSelector((state) => state.counter.text);
-
+  const text = useSelector((state) => state?.textchanger?.text);
+  const mode = useSelector((state) => state?.modechange?.mode);
+  const dispatch = useDispatch();
+  console.log(mode);
   return (
     <>
       <section className="bg-white  shadow-2xl">
@@ -24,7 +27,7 @@ export const Navbar = () => {
                 />
               </svg>
             </div>
-            <a className="btn btn-ghost text-xl">{count}</a>
+            <a className="btn btn-ghost text-xl">{text}</a>
           </div>
           <div className="flex-none gap-2">
             <div className="form-control me-4 btn btn-sm bg-white">
@@ -38,7 +41,10 @@ export const Navbar = () => {
               <button className="btn btn-sm bg-green-700">Suppor </button>
             </div>
             <div>
-              <button className="btn btn-sm bg-slate-200">
+              <button
+                onClick={() => dispatch(setMode(!mode))}
+                className="btn btn-sm bg-slate-200"
+              >
                 {" "}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

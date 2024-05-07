@@ -4,8 +4,8 @@ const initialState = {
   text: "হাদিস গ্রন্থসমূহ",
 };
 
-export const counterSlice = createSlice({
-  name: "counter",
+export const TextSlice = createSlice({
+  name: " textchanger",
   initialState,
   reducers: {
     setText: (state, action) => {
@@ -15,6 +15,6 @@ export const counterSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { setText, decrement, incrementByAmount } = counterSlice.actions;
+export const { setText } = TextSlice.actions;
 
-export default counterSlice.reducer;
+export default TextSlice.reducer;
