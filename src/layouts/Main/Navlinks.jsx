@@ -2,9 +2,12 @@
 import { NavLink } from "react-router-dom";
 
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { setText } from "../../features/counter/counterSlice";
 const Navlinks = ({ style }) => {
   const [isOpen, setIsOpen] = useState(true);
 
+  const dispatch = useDispatch();
   const toggleDrawer = () => {
     setIsOpen(!isOpen);
   };
@@ -27,7 +30,10 @@ const Navlinks = ({ style }) => {
             />
           </svg>
         </NavLink>
-        <NavLink to="/all-books">
+        <NavLink
+          onClick={() => dispatch(setText("হাদিস গ্রন্থসমূহ"))}
+          to="/all-books"
+        >
           {" "}
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +50,10 @@ const Navlinks = ({ style }) => {
             />
           </svg>
         </NavLink>
-        <NavLink to="/subjectwise">
+        <NavLink
+          onClick={() => dispatch(setText("বিষয়ভিত্তিক হাদিস"))}
+          to="/subjectwise"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -61,7 +70,11 @@ const Navlinks = ({ style }) => {
           </svg>
         </NavLink>
 
-        <NavLink to="/profile" className="text-gray-900 hover:text-gray-700">
+        <NavLink
+          onClick={() => dispatch(setText("   বুকমার্ক পেইজ"))}
+          to="/profile"
+          className="text-gray-900 hover:text-gray-700"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -94,7 +107,7 @@ const Navlinks = ({ style }) => {
             />
           </svg>
           <div
-            className={`fixed inset-y-0 left-0 h-80 p-2 rounded-2xl  top-36 z-50 w-64 bg-white text-black transition-transform duration-300 transform ${
+            className={`fixed inset-y-0 left-0 h-96 p-2 rounded-2xl  top-36 z-50 w-64 bg-white text-black transition-transform duration-300 transform ${
               isOpen ? "-translate-x-full" : "translate-x-full"
             }`}
           >
@@ -124,12 +137,29 @@ const Navlinks = ({ style }) => {
                 </div>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="block text-black px-4 py-2 hover:bg-gray-200"
-                >
-                  তহকীক
-                </a>
+                <div className="flex items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="currentColor"
+                    className="w-6 h-6 bg-green-400"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M10.125 2.25h-4.5c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125v-9M10.125 2.25h.375a9 9 0 0 1 9 9v.375M10.125 2.25A3.375 3.375 0 0 1 13.5 5.625v1.5c0 .621.504 1.125 1.125 1.125h1.5a3.375 3.375 0 0 1 3.375 3.375M9 15l2.25 2.25L15 12"
+                    />
+                  </svg>
+
+                  <a
+                    href="#"
+                    className="block text-black px-4 py-2 hover:bg-gray-200"
+                  >
+                    তহকীক
+                  </a>
+                </div>
               </li>
               <li>
                 <div className="flex items-center">
@@ -159,9 +189,26 @@ const Navlinks = ({ style }) => {
               <p className="mt-2 underline ">ডাউনলোড</p>
               <br />
               <li>
-                <a href="#" className=" text-black px-4  hover:bg-gray-200">
-                  আমাদের অন্যান্য প্রকল্পসমূহ
-                </a>
+                <div className="flex items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-6 h-6 bg-green-400"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M6 6.878V6a2.25 2.25 0 0 1 2.25-2.25h7.5A2.25 2.25 0 0 1 18 6v.878m-12 0c.235-.083.487-.128.75-.128h10.5c.263 0 .515.045.75.128m-12 0A2.25 2.25 0 0 0 4.5 9v.878m13.5-3A2.25 2.25 0 0 1 19.5 9v.878m0 0a2.246 2.246 0 0 0-.75-.128H5.25c-.263 0-.515.045-.75.128m15 0A2.25 2.25 0 0 1 21 12v6a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 18v-6c0-.98.626-1.813 1.5-2.122"
+                    />
+                  </svg>
+
+                  <a href="#" className=" text-black px-4  hover:bg-gray-200">
+                    আমাদের অন্যান্য প্রকল্পসমূহ
+                  </a>
+                </div>
               </li>
 
               <p className="underline mt-2"> সহায়তা করেন অথবা যোগাযোগ করেন</p>
