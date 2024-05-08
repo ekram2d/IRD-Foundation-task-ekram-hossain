@@ -8,6 +8,9 @@ import Profile from "../Dashboard/Profile/Profile";
 import { createBrowserRouter } from "react-router-dom";
 
 import App from "../App";
+import BookLayOut from "../Dashboard/BookDashboard/BookLayout/BookLayOut";
+import Book from "../Dashboard/BookDashboard/BookLayout/Book";
+import ChapterDetails from "../Dashboard/BookDashboard/ChapterDetails";
 
 const router = createBrowserRouter([
   // {
@@ -21,6 +24,20 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
+        path: "/",
+        element: <BookLayOut />,
+        children: [
+          {
+            path: "/:bookName",
+            element: <Book />,
+          },
+          {
+            path: "/:bookName/:chapterName",
+            element: <ChapterDetails />,
+          },
+        ],
+      },
+      {
         path: "/all-books",
         element: <AllBooks />,
       },
@@ -32,6 +49,10 @@ const router = createBrowserRouter([
       {
         path: "/profile",
         element: <Profile />,
+      },
+      {
+        path: "/:bookName", // :bookName will be a dynamic parameter
+        element: <Book />,
       },
     ],
   },

@@ -1,5 +1,11 @@
+import HomeNabvar from "./HomeNavbar/HomeNabvar";
+
 const Home = () => {
-  return <>this is home page</>;
+  return (
+    <div className="h-screen">
+      <HomeNabvar />
+    </div>
+  );
 };
 
 export default Home;

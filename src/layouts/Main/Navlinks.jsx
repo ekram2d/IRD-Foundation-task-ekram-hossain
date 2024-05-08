@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { setText } from "../../features/Text/TextSlice";
 
-const Navlinks = ({ style }) => {
+const Navlinks = () => {
   const [isOpen, setIsOpen] = useState(true);
 
   const dispatch = useDispatch();
@@ -14,7 +14,10 @@ const Navlinks = ({ style }) => {
   };
   return (
     <>
-      <div className={style}>
+      <div
+        className={`   w-full flex  justify-center items-center
+         gap-4 fixed bottom-0  lg:flex-col lg:w-20 lg:left-0 `}
+      >
         <NavLink to="/home">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -108,7 +111,7 @@ const Navlinks = ({ style }) => {
             />
           </svg>
           <div
-            className={`fixed inset-y-0 left-0 h-96 p-2 rounded-2xl  top-36 z-50 w-64 bg-white text-black transition-transform duration-300 transform ${
+            className={`fixed inset-y-0 left-[-199px] min-h-min w-auto  p-5  rounded-2xl  top-32 z-50  bg-white text-black transition-transform duration-300 transform ${
               isOpen ? "-translate-x-full" : "translate-x-full"
             }`}
           >
@@ -266,6 +269,7 @@ const Navlinks = ({ style }) => {
           </svg>
         </label>
       </div>
+
       <input
         type="checkbox"
         id="my_modal_6"
@@ -276,7 +280,7 @@ const Navlinks = ({ style }) => {
         className="modal translate-x-4 transition-transform ease-in-out bg-white"
         role="dialog"
       >
-        <div className="modal-box bg-white text-black">
+        <div className=" min-w-max rounded-2xl p-2 bg-white text-black">
           <div className="flex gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
